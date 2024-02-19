@@ -3,6 +3,7 @@
 from datetime import datetime, timedelta
 from uuid import uuid4
 
+
 class BaseModel:
     """Base class for other models. Includes methods common to all models."""
 
@@ -22,11 +23,10 @@ class BaseModel:
 
     def to_dict(self):
         """Returns a dictionary representation of the model instance.
-           Converts datetime objects to ISO format strings 
+           Converts datetime objects to ISO format strings
         """
         model_dict = self.__dict__.copy()
         model_dict["__class__"] = self.__class__.__name__
         model_dict["created_at"] = model_dict["created_at"].isoformat()
         model_dict["updated_at"] = model_dict["updated_at"].isoformat()
         return model_dict
-
